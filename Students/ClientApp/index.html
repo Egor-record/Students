@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Student API!</title>
+    <style>
+        h1 {
+            margin-top: 40px;
+        }
+        
+        table {
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body onload="loadTable();">
+
+<div class="container">
+    <h1>Student API</h1>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name </th>
+            <th scope="col">Mark</th>
+        </tr>
+        </thead>
+        <tbody class="js-load-table">
+            <tr>
+                <th scope="row" class="js-id-number">1</th>
+                <td class="js-name">Loading</td>
+                <td class="js-mark">
+                    <span class="d-flex justify-content-between">
+                        <span>Loading</span>
+                        <span>
+                            <button class="js-edit-button btn-info">Edit</button>
+                            <button class="js-delete-button  btn-danger">Delete</button>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    
+    var table;
+    
+    function loadTable() {
+
+        return axios({
+            method: 'get',
+            url: 'api/getall',
+            responseType: 'application/json; charset=utf-8'
+        }).then(function (res) {
+            
+            table = res.data;
+            
+            if (table != null) {
+                $('.js-load-table').html("");
+            }
+
+            
+            console.log(table);
+
+            table.forEach(function(element) {
+                
+                var html = $('.js-load-table').html();
+                
+                $('.js-load-table').append(`<tr><th scope="row" class="js-id-number">${element.id}</th>
+                <td class="js-name">${element.firstName}</td>
+                <td class="js-mark">
+                    <span class="d-flex justify-content-between">
+                        <span>${element.mark}</span>
+                        <span>
+                            <button class="js-edit-button btn-info" data-id="${element.id}">Edit</button>
+                            <button class="js-delete-button btn-danger" data-id="${element.id}">Delete</button>
+                        </span>
+                    </span>
+                </td></tr>`);
+                
+            });
+            
+            
+            
+        })
+    };
+
+    $("body").on("click", ".js-delete-button", function(){
+
+       var index = +($(this).data("id"));
+       
+       index = index - 2;
+       
+       console.log(table);
+       
+        axios({
+            method: 'delete',
+            url: '/api/' + index,
+            responseType: 'application/json; charset=utf-8',
+            data: {
+                id: table[index].id,
+                firstName: table[index].firstName,
+                mark: table[index].mark
+            }
+        }).then(function (response) {
+            
+            console.log(response);
+
+            loadTable();
+        });
+        
+    });
+    
+
+
+
+    
+</script>
+</body>
+</html>

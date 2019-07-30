@@ -1,0 +1,11 @@
+C:\Users\George\source\repos\Students\Students\bin\Debug\netcoreapp2.1\Students.deps.json
+C:\Users\George\source\repos\Students\Students\bin\Debug\netcoreapp2.1\Students.runtimeconfig.json
+C:\Users\George\source\repos\Students\Students\bin\Debug\netcoreapp2.1\Students.runtimeconfig.dev.json
+C:\Users\George\source\repos\Students\Students\bin\Debug\netcoreapp2.1\Students.dll
+C:\Users\George\source\repos\Students\Students\obj\Debug\netcoreapp2.1\Students.csprojAssemblyReference.cache
+C:\Users\George\source\repos\Students\Students\obj\Debug\netcoreapp2.1\Students.csproj.CoreCompileInputs.cache
+C:\Users\George\source\repos\Students\Students\obj\Debug\netcoreapp2.1\Students.RazorAssemblyInfo.cache
+C:\Users\George\source\repos\Students\Students\obj\Debug\netcoreapp2.1\Students.RazorAssemblyInfo.cs
+C:\Users\George\source\repos\Students\Students\obj\Debug\netcoreapp2.1\Students.AssemblyInfoInputs.cache
+C:\Users\George\source\repos\Students\Students\obj\Debug\netcoreapp2.1\Students.AssemblyInfo.cs
+C:\Users\George\source\repos\Students\Students\obj\Debug\netcoreapp2.1\Students.RazorTargetAssemblyInfo.cache
